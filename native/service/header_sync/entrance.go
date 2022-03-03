@@ -19,6 +19,7 @@ package header_sync
 
 import (
 	"fmt"
+	"github.com/polynetwork/poly/native/service/header_sync/bytom"
 	"github.com/polynetwork/poly/native/service/header_sync/hsc"
 
 	"github.com/polynetwork/poly/native/service/header_sync/harmony"
@@ -104,6 +105,8 @@ func GetChainHandler(router uint64) (hscommon.HeaderSyncHandler, error) {
 		return harmony.NewHandler(), nil
 	case utils.HSC_ROUTER:
 		return hsc.NewHscHandler(), nil
+	case utils.BYTOM_ROUTER:
+		return bytom.NewHandler(), nil
 	default:
 		return nil, fmt.Errorf("not a supported router:%d", router)
 	}
