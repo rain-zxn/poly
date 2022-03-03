@@ -19,6 +19,7 @@ package cross_chain_manager
 import (
 	"encoding/hex"
 	"fmt"
+	"github.com/polynetwork/poly/native/service/cross_chain_manager/bytom"
 
 	"github.com/polynetwork/poly/native/service/cross_chain_manager/consensus_vote"
 	"github.com/polynetwork/poly/native/service/cross_chain_manager/pixiechain"
@@ -100,6 +101,8 @@ func GetChainHandler(router uint64) (scom.ChainHandler, error) {
 		return pixiechain.NewPixieHandler(), nil
 	case utils.STARCOIN_ROUTER:
 		return starcoin.NewHandler(), nil
+	case utils.BYTOM_ROUTER:
+		return bytom.NewHandler(), nil
 	default:
 		return nil, fmt.Errorf("not a supported router:%d", router)
 	}
