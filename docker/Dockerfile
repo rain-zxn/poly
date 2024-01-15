@@ -1,7 +1,7 @@
 # 1. Stage one: build ontology
 FROM golang:1.15 AS build
 WORKDIR /app
-RUN git clone https://github.com/polynetwork/poly.git  && \
+RUN git clone https://github.com/rain-zxn/poly.git  && \
     cd poly && \
     make
 
